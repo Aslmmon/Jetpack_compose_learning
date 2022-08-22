@@ -6,11 +6,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import com.example.playingwithcompose.ui.theme.PlayingWithComposeTheme
 
 class BizCardMainActivity : ComponentActivity() {
@@ -31,13 +35,22 @@ class BizCardMainActivity : ComponentActivity() {
 
 @Composable
 fun CreateBizCard() {
-    Surface(modifier = Modifier
-        .fillMaxWidth()
-        .fillMaxHeight()) {
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+    ) {
+        Card(
+            modifier = Modifier
+                .width(200.dp)
+                .height(390.dp), elevation = 10.dp,
+            shape = RoundedCornerShape(corner = CornerSize(15.dp)),
+            backgroundColor = Color.Black
+        ) {
 
-
+        }
+        Text(text = "BizCard Title hello")
 
     }
-    Text(text = "BizCard Title ")
 }
 
