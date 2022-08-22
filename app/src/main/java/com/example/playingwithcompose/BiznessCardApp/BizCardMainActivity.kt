@@ -56,6 +56,7 @@ fun CreateBizCard() {
             backgroundColor = Color.White
         ) {
             Column(
+
                 modifier = Modifier.height(300.dp),
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
