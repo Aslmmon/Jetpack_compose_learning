@@ -8,11 +8,15 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -42,6 +46,9 @@ class BizCardMainActivity : ComponentActivity() {
 
 @Composable
 fun CreateBizCard() {
+    val buttonState = remember {
+        mutableStateOf(false)
+    }
     Surface(
         modifier = Modifier
             .fillMaxWidth()
@@ -65,19 +72,54 @@ fun CreateBizCard() {
                 provideDevider()
                 createStaticDataForUser()
                 Button(onClick = {
-                    Log.i("data","clicked")
+                    Log.i("data", "clicked")
+                    buttonState.value = !buttonState.value
                 }) {
                     Text(text = "Portfolio", style = MaterialTheme.typography.button)
+                }
+                when(buttonState.value){
+                    true -> createContent()
+                    false -> Box(modifier = Modifier.padding(5.dp))
                 }
 
             }
 
 
-
-
         }
 
     }
+}
+
+//
+@Composable
+private fun createContent() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .padding(5.dp)
+    ) {
+        Surface(
+            modifier = Modifier
+                .padding(3.dp)
+                .fillMaxHeight()
+                .fillMaxWidth(),
+            shape = RoundedCornerShape(corner = CornerSize(5.dp))
+        ) {
+            Portfolio(mutableListOf("test", "one", "two"))
+        }
+    }
+}
+
+@Composable
+fun Portfolio(dataList: MutableList<String>) {
+    LazyColumn() {
+        items(dataList) { item ->
+            Text(text = item)
+
+        }
+    }
+
 }
 
 @Composable
@@ -103,7 +145,7 @@ private fun provideDevider() {
     Divider(
         modifier = Modifier.height(1.dp),
         thickness = 1.dp,
-        color = Color.Blue
+        color = Color.Gray
     )
 }
 
