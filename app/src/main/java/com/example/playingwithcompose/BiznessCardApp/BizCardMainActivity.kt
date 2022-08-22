@@ -36,6 +36,7 @@ fun CreateBizCard() {
         .fillMaxHeight()) {
 
 
+
     }
     Text(text = "BizCard Title ")
 }
