@@ -2,6 +2,7 @@ package com.example.playingwithcompose.BiznessCardApp
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -61,24 +62,34 @@ fun CreateBizCard() {
             ) {
                 createImageProfileCard()
                 provideDevider()
-                Column(modifier = Modifier.padding(5.dp)) {
-                    Text(
-                        text = "Miles P.", style = MaterialTheme.typography.h4,
-                        color = MaterialTheme.colors.primaryVariant
-                    )
-                    Text(
-                        text = "Android Programmer",
-                    )
-                    Text(
-                        text = "@testCompose", style = MaterialTheme.typography.subtitle1,
-                    )
-
-
+                createStaticDataForUser()
+                Button(onClick = {
+                    Log.i("data","clicked")
+                }) {
+                    Text(text = "Portfolio", style = MaterialTheme.typography.button)
                 }
 
             }
 
         }
+
+    }
+}
+
+@Composable
+private fun createStaticDataForUser() {
+    Column(modifier = Modifier.padding(5.dp)) {
+        Text(
+            text = "Miles P.", style = MaterialTheme.typography.h4,
+            color = MaterialTheme.colors.primaryVariant
+        )
+        Text(
+            text = "Android Programmer",
+        )
+        Text(
+            text = "@testCompose", style = MaterialTheme.typography.subtitle1,
+        )
+
 
     }
 }
