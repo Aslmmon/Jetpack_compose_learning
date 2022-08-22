@@ -7,6 +7,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -21,8 +22,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Green
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.playingwithcompose.R
@@ -68,7 +71,10 @@ fun CreateBizCard() {
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                createImageProfileCard()
+                createImageProfileCard(
+                    Modifier
+                        .size(150.dp)
+                        .padding(5.dp))
                 provideDevider()
                 createStaticDataForUser()
                 Button(onClick = {
@@ -106,7 +112,7 @@ private fun createContent() {
                 .fillMaxWidth(),
             shape = RoundedCornerShape(corner = CornerSize(5.dp))
         ) {
-            Portfolio(mutableListOf("test", "one", "two"))
+            Portfolio(mutableListOf("First Project", "Second One", "third One"))
         }
     }
 }
@@ -115,7 +121,27 @@ private fun createContent() {
 fun Portfolio(dataList: MutableList<String>) {
     LazyColumn() {
         items(dataList) { item ->
-            Text(text = item)
+            Card(modifier = Modifier
+                .padding(13.dp)
+                .fillMaxWidth(), shape = RectangleShape) {
+                    Row(modifier = Modifier
+                        .padding(8.dp)
+                        .background(MaterialTheme.colors.surface)
+                        .padding(8.dp)) {
+                            createImageProfileCard(
+                                Modifier
+                                    .size(50.dp)
+                                    .padding(5.dp))
+
+                            Column(modifier = Modifier
+                                .align(Alignment.CenterVertically)) {
+                                Text(text = item, fontWeight = FontWeight.Bold)
+                                Text(text = item, style = MaterialTheme.typography.body2)
+
+                            }
+
+                    }
+            }
 
         }
     }
@@ -150,11 +176,9 @@ private fun provideDevider() {
 }
 
 @Composable
-fun createImageProfileCard() {
+fun createImageProfileCard(modifier: Modifier) {
     Surface(
-        modifier = Modifier
-            .size(150.dp)
-            .padding(5.dp),
+        modifier = modifier,
         shape = CircleShape,
         border = BorderStroke(0.1.dp, Color.LightGray),
         elevation = 2.dp,
