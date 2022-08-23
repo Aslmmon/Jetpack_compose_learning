@@ -102,6 +102,7 @@ private fun createContent() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
+
             .fillMaxHeight()
             .padding(5.dp)
     ) {
