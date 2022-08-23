@@ -25,7 +25,7 @@
 <!--            </intent-filter>-->
 <!--        </activity>-->
         <activity
-            android:name=".BiznessCardApp.BizCardMainActivity"
+            android:name=".JetCalculator.JetCalculator"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.PlayingWithCompose">
