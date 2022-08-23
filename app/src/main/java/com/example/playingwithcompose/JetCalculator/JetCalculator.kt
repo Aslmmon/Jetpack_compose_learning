@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.playingwithcompose.JetCalculator.views.TopCard
 import com.example.playingwithcompose.ui.theme.PlayingWithComposeTheme
 
 class JetCalculator : ComponentActivity() {
@@ -16,7 +18,9 @@ class JetCalculator : ComponentActivity() {
         super.onCreate(savedInstanceState, persistentState)
         setContent {
             MyTipCalculatorApp {
-                Text(text = "hello calculator")
+                Column {
+                    TopCard()
+                }
             }
 
         }
@@ -38,7 +42,7 @@ fun MyTipCalculatorApp(content: @Composable () -> Unit) {
 fun DefaultPreview() {
     PlayingWithComposeTheme {
         MyTipCalculatorApp {
-            Text(text = "hello calculator")
+            TopCard()
         }
     }
 }
