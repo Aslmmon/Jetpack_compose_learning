@@ -51,12 +51,4 @@ fun TopCard(totalMoney: Double = 135.0) {
     }
 }
 
-@Preview
-@Composable
-fun DefaultPreview() {
-    PlayingWithComposeTheme {
-        MyTipCalculatorApp {
-            TopCard()
-        }
-    }
-}
+
