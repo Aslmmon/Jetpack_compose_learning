@@ -24,8 +24,6 @@ class JetCalculator : ComponentActivity() {
         setContent {
             MyTipCalculatorApp {
                 Column {
-
-
                     TopCard()
                     MainContent()
                 }
