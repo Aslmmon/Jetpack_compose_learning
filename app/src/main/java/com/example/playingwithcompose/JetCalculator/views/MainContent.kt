@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.material.Slider
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
@@ -19,6 +20,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.playingwithcompose.JetCalculator.views.component.InputTextField
 import com.example.playingwithcompose.JetCalculator.widgets.RoundIconButton
@@ -36,8 +38,12 @@ fun MainContent() {
         totalBillState.value.trim().isNotEmpty()
     }
     val isMoreThanOne = remember(totalSplitNumber.value) {
-        totalSplitNumber.value >= 1
+        totalSplitNumber.value > 1
     }
+    val sliderValue = remember {
+        mutableStateOf(0f)
+    }
+
 
     val keyboard = LocalSoftwareKeyboardController.current
     Surface(
@@ -61,34 +67,62 @@ fun MainContent() {
                 }
             )
 
-            if (validState) {
-                Row(modifier = Modifier.padding(3.dp), horizontalArrangement = Arrangement.Start) {
-                    Text(text = "Split")
-                    Spacer(modifier = Modifier.width(120.dp))
-                    Row(
-                        modifier = Modifier.padding(horizontal = 3.dp),
-                        horizontalArrangement = Arrangement.End
-                    ) {
-                        RoundIconButton(imageVector = Icons.Default.Remove, onClick = {
-                            Log.d("number", "MainContent: ${isMoreThanOne.toString()}")
-                            if (isMoreThanOne) totalSplitNumber.value--
-                        })
-                        Text(
-                            text = totalSplitNumber.value.toString(),
-                            modifier = Modifier
-                                .align(Alignment.CenterVertically)
-                                .padding(start = 9.dp, end = 9.dp)
-                        )
-                        RoundIconButton(imageVector = Icons.Default.Add, onClick = {
-                            totalSplitNumber.value++
-                        })
-                    }
-                }
-            } else {
-                Box {
-
+            Row(modifier = Modifier.padding(3.dp), horizontalArrangement = Arrangement.Start) {
+                Text(text = "Split")
+                Spacer(modifier = Modifier.width(120.dp))
+                Row(
+                    modifier = Modifier.padding(horizontal = 3.dp),
+                    horizontalArrangement = Arrangement.End
+                ) {
+                    RoundIconButton(imageVector = Icons.Default.Remove, onClick = {
+                        Log.d("number", "MainContent: ${isMoreThanOne.toString()}")
+                        if (isMoreThanOne) totalSplitNumber.value--
+                    })
+                    Text(
+                        text = totalSplitNumber.value.toString(),
+                        modifier = Modifier
+                            .align(Alignment.CenterVertically)
+                            .padding(start = 9.dp, end = 9.dp)
+                    )
+                    RoundIconButton(imageVector = Icons.Default.Add, onClick = {
+                        totalSplitNumber.value++
+                    })
                 }
             }
+
+            Row(
+                modifier = Modifier.padding(horizontal = 3.dp),
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Text(
+                    text = "Tip",
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .padding(start = 9.dp, end = 9.dp)
+                )
+
+                Spacer(modifier = Modifier.width(200.dp))
+
+                Text(
+                    text = "$33.00",
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .padding(start = 9.dp, end = 9.dp)
+                )
+            }
+
+            Text(
+                text = "33%",
+                textAlign = TextAlign.Center,
+                modifier = Modifier.align(Alignment.CenterHorizontally)
+            )
+            Spacer(modifier = Modifier.height(14.dp))
+            Slider(
+                modifier = Modifier.padding(5.dp),
+                value = sliderValue.value,
+                onValueChange = { newValue ->
+                    sliderValue.value = newValue
+                })
 
         }
     }
