@@ -1,5 +1,6 @@
 package com.example.playingwithcompose.JetCalculator.views
 
+import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CornerSize
@@ -9,11 +10,11 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Remove
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,8 +29,14 @@ fun MainContent() {
     val totalBillState = remember {
         mutableStateOf("")
     }
+    val totalSplitNumber = remember {
+        mutableStateOf(0)
+    }
     val validState = remember(totalBillState.value) {
         totalBillState.value.trim().isNotEmpty()
+    }
+    val isMoreThanOne = remember(totalSplitNumber.value) {
+        totalSplitNumber.value >= 1
     }
 
     val keyboard = LocalSoftwareKeyboardController.current
@@ -63,10 +70,17 @@ fun MainContent() {
                         horizontalArrangement = Arrangement.End
                     ) {
                         RoundIconButton(imageVector = Icons.Default.Remove, onClick = {
-
+                            Log.d("number", "MainContent: ${isMoreThanOne.toString()}")
+                            if (isMoreThanOne) totalSplitNumber.value--
                         })
+                        Text(
+                            text = totalSplitNumber.value.toString(),
+                            modifier = Modifier
+                                .align(Alignment.CenterVertically)
+                                .padding(start = 9.dp, end = 9.dp)
+                        )
                         RoundIconButton(imageVector = Icons.Default.Add, onClick = {
-
+                            totalSplitNumber.value++
                         })
                     }
                 }
