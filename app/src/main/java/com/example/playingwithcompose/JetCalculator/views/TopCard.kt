@@ -27,6 +27,7 @@ fun TopCard(totalMoney: Double = 135.0) {
     Surface(
         modifier = Modifier
             .fillMaxWidth()
+            .padding(20.dp)
             .height(150.dp)
             .clip(
                 shape = CircleShape.copy(all = CornerSize(15.dp)),

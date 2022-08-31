@@ -120,6 +120,7 @@ fun MainContent() {
             Slider(
                 modifier = Modifier.padding(5.dp),
                 value = sliderValue.value,
+                steps = 5,
                 onValueChange = { newValue ->
                     sliderValue.value = newValue
                 })
