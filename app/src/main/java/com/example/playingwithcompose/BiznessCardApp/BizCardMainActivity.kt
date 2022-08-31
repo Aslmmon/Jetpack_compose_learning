@@ -195,12 +195,4 @@ fun createImageProfileCard(modifier: Modifier) {
     }
 }
 
-@Preview
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    PlayingWithComposeTheme {
-        CreateBizCard()
-    }
-}
 

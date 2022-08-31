@@ -1,14 +1,16 @@
 package com.example.playingwithcompose.JetCalculator.views
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.Remove
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -18,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.unit.dp
 import com.example.playingwithcompose.JetCalculator.views.component.InputTextField
+import com.example.playingwithcompose.JetCalculator.widgets.RoundIconButton
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -29,7 +32,7 @@ fun MainContent() {
         totalBillState.value.trim().isNotEmpty()
     }
 
-     val keyboard = LocalSoftwareKeyboardController.current
+    val keyboard = LocalSoftwareKeyboardController.current
     Surface(
         modifier = Modifier
             .padding(10.dp)
@@ -50,6 +53,28 @@ fun MainContent() {
                     keyboard?.hide()
                 }
             )
+
+            if (validState) {
+                Row(modifier = Modifier.padding(3.dp), horizontalArrangement = Arrangement.Start) {
+                    Text(text = "Split")
+                    Spacer(modifier = Modifier.width(120.dp))
+                    Row(
+                        modifier = Modifier.padding(horizontal = 3.dp),
+                        horizontalArrangement = Arrangement.End
+                    ) {
+                        RoundIconButton(imageVector = Icons.Default.Remove, onClick = {
+
+                        })
+                        RoundIconButton(imageVector = Icons.Default.Add, onClick = {
+
+                        })
+                    }
+                }
+            } else {
+                Box {
+
+                }
+            }
 
         }
     }

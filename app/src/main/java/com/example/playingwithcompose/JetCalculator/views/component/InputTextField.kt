@@ -42,7 +42,7 @@ fun InputTextField(
         },
         singleLine = isSingleLine,
         enabled = enabled,
-        textStyle = TextStyle(fontSize = 18.sp, color = MaterialTheme.colors.onBackground),
+        textStyle =  TextStyle(fontSize = 18.sp, color = MaterialTheme.colors.onBackground),
         modifier = modifier.padding(bottom = 10.dp, start = 10.dp, end = 10.dp),
         keyboardOptions = KeyboardOptions(keyboardType = keyboardTypes, imeAction = imeActionS)
     )
