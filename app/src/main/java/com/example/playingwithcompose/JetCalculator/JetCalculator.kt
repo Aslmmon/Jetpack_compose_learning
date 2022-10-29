@@ -1,6 +1,7 @@
 package com.example.playingwithcompose.JetCalculator
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -23,6 +24,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.view.WindowCompat
 import com.example.playingwithcompose.R
 import com.example.playingwithcompose.login.LoginApp
 import com.example.playingwithcompose.ui.theme.AppColorPrimary
@@ -31,10 +33,14 @@ import com.example.playingwithcompose.ui.theme.PlayingWithComposeTheme
 class JetCalculator : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
         setContent {
             PlayingWithComposeTheme {
                 LoginApp {
-
                     Box {
                         Image(
                             painterResource(id = R.drawable.background),
