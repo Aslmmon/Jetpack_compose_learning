@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
- fun customEditText(hintEditTexr: String): String {
+ fun AppEditText(hintEditText: String): String {
     val value by remember { mutableStateOf("") }
     OutlinedTextField(
         value = value,
@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
             focusedBorderColor = Color.Gray.copy(alpha = 0.2f),
             unfocusedBorderColor = Color.Gray.copy(alpha = 0.2f),
         ),
-        placeholder = { Text(text = hintEditTexr) },
+        placeholder = { Text(text = hintEditText) },
         maxLines = 1,
         singleLine = true
     )

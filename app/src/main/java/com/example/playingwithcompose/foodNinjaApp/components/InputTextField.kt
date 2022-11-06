@@ -1,4 +1,4 @@
-package com.example.playingwithcompose.foodNinjaApp.views.component
+package com.example.playingwithcompose.foodNinjaApp.components
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions

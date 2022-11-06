@@ -5,7 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -42,13 +44,15 @@ class NinjaApp : ComponentActivity() {
 @Preview(name = "LoginScreen")
 @Composable
 fun showPreview() {
-    Box {
+
+    Box(modifier = Modifier.fillMaxSize()) {
         Image(
             painterResource(id = R.drawable.background),
             contentDescription = "test",
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxWidth().fillMaxHeight()
         )
-        showLoginPageContent()
-
+        Box {
+            showLoginPageContent()
+        }
     }
 }

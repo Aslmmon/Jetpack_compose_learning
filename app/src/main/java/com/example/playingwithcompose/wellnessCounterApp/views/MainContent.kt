@@ -22,7 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.playingwithcompose.foodNinjaApp.views.component.InputTextField
+import com.example.playingwithcompose.foodNinjaApp.components.InputTextField
 import com.example.playingwithcompose.ui.widgets.RoundIconButton
 
 @OptIn(ExperimentalComposeUiApi::class)
