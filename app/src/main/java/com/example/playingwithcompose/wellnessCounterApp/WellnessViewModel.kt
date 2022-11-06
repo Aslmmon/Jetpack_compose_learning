@@ -1,4 +1,4 @@
-package com.example.playingwithcompose
+package com.example.playingwithcompose.wellnessCounterApp
 
 import androidx.compose.runtime.toMutableStateList
 import androidx.lifecycle.ViewModel

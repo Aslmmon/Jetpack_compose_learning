@@ -1,4 +1,4 @@
-package com.example.playingwithcompose.JetCalculator.widgets
+package com.example.playingwithcompose.ui.widgets
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding

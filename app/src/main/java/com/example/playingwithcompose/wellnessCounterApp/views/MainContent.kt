@@ -1,4 +1,4 @@
-package com.example.playingwithcompose.JetCalculator.views
+package com.example.playingwithcompose.wellnessCounterApp.views
 
 import android.util.Log
 import androidx.compose.foundation.BorderStroke
@@ -22,8 +22,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.playingwithcompose.JetCalculator.views.component.InputTextField
-import com.example.playingwithcompose.JetCalculator.widgets.RoundIconButton
+import com.example.playingwithcompose.foodNinjaApp.views.component.InputTextField
+import com.example.playingwithcompose.ui.widgets.RoundIconButton
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable

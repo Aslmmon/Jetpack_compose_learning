@@ -1,4 +1,4 @@
-package com.example.playingwithcompose.JetCalculator.views
+package com.example.playingwithcompose.wellnessCounterApp.views
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape

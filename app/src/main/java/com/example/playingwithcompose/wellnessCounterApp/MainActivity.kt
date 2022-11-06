@@ -1,4 +1,4 @@
-package com.example.playingwithcompose
+package com.example.playingwithcompose.wellnessCounterApp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,9 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.playingwithcompose.login.LoginApp
+import com.example.playingwithcompose.WellnessScreen
 import com.example.playingwithcompose.ui.theme.PlayingWithComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,12 +27,3 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
-@Composable
-fun DefaultPreview() {
-    PlayingWithComposeTheme {
-        LoginApp {
-
-        }
-    }
-}

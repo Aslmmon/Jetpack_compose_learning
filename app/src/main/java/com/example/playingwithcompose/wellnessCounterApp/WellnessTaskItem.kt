@@ -1,4 +1,4 @@
-package com.example.playingwithcompose
+package com.example.playingwithcompose.wellnessCounterApp
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.Icon

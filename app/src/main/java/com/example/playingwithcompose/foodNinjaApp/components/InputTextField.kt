@@ -1,4 +1,4 @@
-package com.example.playingwithcompose.JetCalculator.views.component
+package com.example.playingwithcompose.foodNinjaApp.views.component
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
