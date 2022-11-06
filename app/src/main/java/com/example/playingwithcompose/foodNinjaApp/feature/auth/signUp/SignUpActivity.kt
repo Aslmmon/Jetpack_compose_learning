@@ -59,6 +59,8 @@ fun ShowSignUp() {
         })
         AppEditText(hintEditText = "Email", leadingIcon = {
             AppImageLoaderSVG(resource = R.drawable.message)
+
+
         })
         AppEditText(hintEditText = "Password", leadingIcon = {
             AppImageLoaderSVG(resource = R.drawable.lock)
