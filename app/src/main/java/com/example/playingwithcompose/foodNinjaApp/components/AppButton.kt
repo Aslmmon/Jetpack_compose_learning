@@ -3,6 +3,7 @@ package com.example.playingwithcompose.foodNinjaApp.components
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
@@ -20,19 +21,20 @@ import com.example.playingwithcompose.ui.theme.AppColorWhite
 @Composable
 fun AppButton(
     modifier: Modifier = Modifier,
-    text: String,
+    text: String="",
     backgroundColor: Color = AppColorPrimary,
     textColor: Color = AppColorWhite,
-    onButtonClick: () -> Unit,
+    onButtonClick: () -> Unit={},
 ) {
     Button(
         onClick = onButtonClick,
         colors = ButtonDefaults.buttonColors(backgroundColor = backgroundColor),
         modifier = modifier
-            .padding(top = 20.dp)
+            .padding(top = 20.dp).
+            size(height = 57.dp, width = 175.dp)
             .border(
                 border = BorderStroke(0.5.dp, color = Color.White.copy(alpha = 0.2f)),
-                shape = RoundedCornerShape(10.dp)
+                shape = RoundedCornerShape(25.dp)
             )
     )
 
@@ -40,3 +42,4 @@ fun AppButton(
         Text(text = text, color = textColor)
     }
 }
+

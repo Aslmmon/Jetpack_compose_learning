@@ -14,10 +14,19 @@
         android:theme="@style/Theme.PlayingWithCompose"
         tools:targetApi="31">
         <activity
+            android:name=".foodNinjaApp.feature.auth.signUp.SignUpActivity"
+            android:theme="@style/Theme.PlayingWithCompose"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".foodNinjaApp.NinjaApp"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.PlayingWithCompose">
+            android:theme="@style/Theme.PlayingWithCompose"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
