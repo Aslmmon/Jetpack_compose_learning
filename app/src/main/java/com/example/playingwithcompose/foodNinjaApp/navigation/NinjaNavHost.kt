@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.playingwithcompose.foodNinjaApp.feature.auth.login.SignInPageScreen
 import com.example.playingwithcompose.foodNinjaApp.feature.auth.signUp.SignUpPageScreen
+import com.example.playingwithcompose.foodNinjaApp.feature.splash.SplashScreen
 
 @Composable
 fun NinjaAppNavHost(
@@ -15,36 +16,28 @@ fun NinjaAppNavHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = SignInScreen.route,
+        startDestination = SplashScreen.route,
         modifier = modifier
     ) {
         composable(route = SignInScreen.route) {
             SignInPageScreen(onSignInClick = {
-
-                /**
-                 * Todo
-                 */
             }, onForgetPasswordClick = {
-                /**
-                 * Todo
-                 */
             }, onSignUpClick = {
-            navController.navigate(SignUpScreen.route)
+                navController.navigate(SignUpScreen.route)
             })
         }
         composable(route = SignUpScreen.route) {
             SignUpPageScreen()
         }
-
-//        composable(
-//            route = SingleAccount.routeWithArgs,
-//            arguments = SingleAccount.arguments,
-//            deepLinks = SingleAccount.deepLinks
-//        ) { navBackStackEntry ->
-//            val accountType =
-//                navBackStackEntry.arguments?.getString(SingleAccount.accountTypeArg)
-//            SingleAccountScreen(accountType)
-//        }
+        composable(route = SplashScreen.route) {
+            SplashScreen(onSplashDelayEnd = {
+                navController.navigate(SignInScreen.route) {
+                    popUpTo(SplashScreen.route) {
+                        inclusive = true
+                    }
+                }
+            })
+        }
     }
 }
 
@@ -52,5 +45,5 @@ fun NavHostController.navigateSingleTopTo(route: String) =
     this.navigate(route) { launchSingleTop = true }
 
 private fun NavHostController.navigateToSingleAccount(accountType: String) {
-   // this.navigateSingleTopTo("${SingleAccount.route}/$accountType")
+    // this.navigateSingleTopTo("${SingleAccount.route}/$accountType")
 }

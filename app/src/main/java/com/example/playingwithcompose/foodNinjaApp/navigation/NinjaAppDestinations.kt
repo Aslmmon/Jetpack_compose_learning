@@ -27,7 +27,7 @@ interface NinjaAppDestination {
 /**
  * Rally app navigation destinations
  */
-object Splash : NinjaAppDestination {
+object SplashScreen : NinjaAppDestination {
     override val route = "splashScreen"
 }
 

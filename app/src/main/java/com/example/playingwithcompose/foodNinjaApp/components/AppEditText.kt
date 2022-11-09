@@ -42,7 +42,6 @@ fun AppEditText(
             placeholder = { Text(text = hintEditText) },
             maxLines = 1,
             leadingIcon = leadingIcon,
-
             singleLine = true
         )
     }

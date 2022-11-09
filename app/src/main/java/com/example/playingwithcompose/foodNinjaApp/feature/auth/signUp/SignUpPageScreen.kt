@@ -16,7 +16,6 @@ fun SignUpPageScreen() {
             text = "Sign up For Free ",
             modifier = Modifier.padding(top = 60.dp, bottom = 20.dp)
         )
-
         AppEditText(hintEditText = "Amsdsd", leadingIcon = {
             AppImageLoaderSVG(resource = R.drawable.lock)
             AppImageLoaderSVG(resource = R.drawable.profile)
