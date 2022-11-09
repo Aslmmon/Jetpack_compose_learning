@@ -22,15 +22,14 @@ import com.example.playingwithcompose.R
 @Composable
 fun AppEditText(
     hintEditText: String = "test",
-    leadingIcon: @Composable (() -> Unit)? = null
+    leadingIcon: @Composable (() -> Unit)? = null,
+    onValueChange:(String)->Unit ={}
 ): String {
     val value by remember { mutableStateOf("") }
     Row {
         OutlinedTextField(
             value = value,
-            onValueChange = {
-
-            },
+            onValueChange = onValueChange,
             shape= RoundedCornerShape(20.dp),
             modifier = Modifier
                 .fillMaxWidth()

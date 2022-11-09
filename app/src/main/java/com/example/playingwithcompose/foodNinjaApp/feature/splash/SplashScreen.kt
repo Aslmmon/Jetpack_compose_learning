@@ -8,12 +8,15 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.playingwithcompose.R
 import kotlinx.coroutines.delay
 
 const val Splash_delay = 3000L
+const val SplashScreenDescription = "SplashScreenDescritpion"
 
 @Preview("SplashScreen")
 @Composable
@@ -23,7 +26,9 @@ fun SplashScreen(onSplashDelayEnd: () -> Unit = {}) {
         delay(Splash_delay)
         onSplashDelayEnd.invoke()
     })
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxSize().semantics {
+        contentDescription=SplashScreenDescription
+    }) {
         Image(
             painterResource(id = R.drawable.background),
             contentDescription = null,

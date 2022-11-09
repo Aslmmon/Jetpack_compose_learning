@@ -2,9 +2,11 @@ package com.example.playingwithcompose.foodNinjaApp.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.playingwithcompose.foodNinjaApp.feature.auth.login.LoginViewModel
 import com.example.playingwithcompose.foodNinjaApp.feature.auth.login.SignInPageScreen
 import com.example.playingwithcompose.foodNinjaApp.feature.auth.signUp.SignUpPageScreen
 import com.example.playingwithcompose.foodNinjaApp.feature.splash.SplashScreen
@@ -20,11 +22,13 @@ fun NinjaAppNavHost(
         modifier = modifier
     ) {
         composable(route = SignInScreen.route) {
+            val viewModel = hiltViewModel<LoginViewModel>()
+
             SignInPageScreen(onSignInClick = {
             }, onForgetPasswordClick = {
             }, onSignUpClick = {
                 navController.navigate(SignUpScreen.route)
-            })
+            }, loginViewModel= viewModel)
         }
         composable(route = SignUpScreen.route) {
             SignUpPageScreen()
