@@ -1,7 +1,5 @@
 package com.example.playingwithcompose.foodNinjaApp.components
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -28,14 +26,12 @@ fun AppButton(
 ) {
     Button(
         onClick = onButtonClick,
-        colors = ButtonDefaults.buttonColors(backgroundColor = backgroundColor),
         modifier = modifier
             .padding(top = 20.dp).
-            size(height = 57.dp, width = 175.dp)
-            .border(
-                border = BorderStroke(0.5.dp, color = Color.White.copy(alpha = 0.2f)),
-                shape = RoundedCornerShape(25.dp)
-            )
+            size(height = 57.dp, width = 175.dp),
+        shape = RoundedCornerShape(15.dp), // = 50% percent
+        colors = ButtonDefaults.buttonColors(backgroundColor = backgroundColor),
+
     )
 
     {

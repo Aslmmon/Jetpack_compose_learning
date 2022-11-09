@@ -20,9 +20,16 @@ fun NinjaAppNavHost(
     ) {
         composable(route = SignInScreen.route) {
             SignInPageScreen(onSignInClick = {
-                navController.navigate(SignUpScreen.route)
-            }, onForgetPasswordClick = {
 
+                /**
+                 * Todo
+                 */
+            }, onForgetPasswordClick = {
+                /**
+                 * Todo
+                 */
+            }, onSignUpClick = {
+            navController.navigate(SignUpScreen.route)
             })
         }
         composable(route = SignUpScreen.route) {

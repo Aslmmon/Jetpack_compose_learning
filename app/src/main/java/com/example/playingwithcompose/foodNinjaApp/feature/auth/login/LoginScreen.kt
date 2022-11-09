@@ -14,6 +14,7 @@ import com.example.playingwithcompose.foodNinjaApp.components.*
 @Composable
 fun SignInPageScreen(onSignInClick: () -> Unit = {},
                      onForgetPasswordClick: () -> Unit = {},
+                     onSignUpClick:()->Unit ={}
 ) {
 
     ShowAppLayoutWithLogo{
@@ -33,6 +34,8 @@ fun SignInPageScreen(onSignInClick: () -> Unit = {},
         }
         AppTextUnderlined(text = "Forgot your Password?", onTextClicked = onForgetPasswordClick)
         AppButton(text = "Login", onButtonClick = onSignInClick)
+        AppButton(text = "Sign Up", onButtonClick = onSignUpClick)
+
 
     }
 
