@@ -1,5 +1,6 @@
 package com.example.playingwithcompose.foodNinjaApp.components
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -11,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.playingwithcompose.foodNinjaApp.feature.auth.login.LoginUiState
 import com.example.playingwithcompose.ui.theme.AppColorPrimary
 import com.example.playingwithcompose.ui.theme.AppColorWhite
 
@@ -18,12 +20,13 @@ import com.example.playingwithcompose.ui.theme.AppColorWhite
 @Preview(name = "AppButton")
 @Composable
 fun AppButton(
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
     text: String="",
     backgroundColor: Color = AppColorPrimary,
     textColor: Color = AppColorWhite,
     onButtonClick: () -> Unit={},
-) {
+    isButtonValid:Boolean=true
+    ) {
     Button(
         onClick = onButtonClick,
         modifier = modifier
@@ -31,6 +34,7 @@ fun AppButton(
             size(height = 57.dp, width = 175.dp),
         shape = RoundedCornerShape(15.dp), // = 50% percent
         colors = ButtonDefaults.buttonColors(backgroundColor = backgroundColor),
+        enabled = isButtonValid
 
     )
 

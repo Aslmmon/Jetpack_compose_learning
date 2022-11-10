@@ -35,9 +35,7 @@ fun SignUpPageScreen() {
         })
         AppTextWithIcon(title = "Keep Me Signed In")
         AppTextWithIcon(title = "Email Me About Special Pricing")
-        AppButton(text = "Create Account", onButtonClick = {
-
-        })
+        AppButton(text = "Create Account")
         AppTextUnderlined("Already have an account?", onTextClicked = {
 
         })

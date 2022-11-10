@@ -6,6 +6,7 @@ import android.util.Patterns
 import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,21 +17,33 @@ class LoginViewModel @Inject constructor(
     val uiState: StateFlow<LoginUiState> = _uiState.asStateFlow()
 
 
-    fun setEmail(email: String){
-        _uiState.value.copy(email = email)
-    }
-    fun setPassword(password: String){
-        _uiState.value.copy(password = password)
+    fun setEmail(email: String) {
+        _uiState.update { _ ->
+            uiState.value.copy(email = email)
+        }
+        isFormValid()
     }
 
-    fun isFormValid(emailAddress: String): Boolean {
-        return Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()
+    fun setPassword(password: String) {
+        _uiState.update { _ ->
+            uiState.value.copy(password = password)
+        }
+        isFormValid()
+    }
+
+    private fun isFormValid(): Boolean {
+        _uiState.update { _ ->
+            uiState.value.copy(isValid = uiState.value.email.isNotEmpty() && _uiState.value.password.isNotEmpty())
+        }
+        return uiState.value.isValid
     }
 
 }
+
 data class LoginUiState(
     val email: String = "",
-    val password: String = ""
+    val password: String = "",
+    val isValid :Boolean = false
 
 )
 
