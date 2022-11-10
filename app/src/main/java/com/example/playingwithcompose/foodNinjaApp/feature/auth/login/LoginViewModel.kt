@@ -30,7 +30,9 @@ class LoginViewModel @Inject constructor(
         }
         isFormValid()
     }
-
+    fun  clearState(){
+        _uiState.value = LoginUiState()
+    }
     private fun isFormValid(): Boolean {
         _uiState.update { _ ->
             uiState.value.copy(isValid = uiState.value.email.isNotEmpty() && _uiState.value.password.isNotEmpty())

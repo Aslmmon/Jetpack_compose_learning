@@ -1,7 +1,9 @@
 package com.example.playingwithcompose.foodNinjaApp.feature.auth.login
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -26,9 +28,12 @@ fun SignInPageScreen(
     loginViewModel: LoginViewModel = hiltViewModel()
 ) {
 
+
     val loginUiState by loginViewModel.uiState.collectAsState()
 
-
+    LaunchedEffect(key1 = true, block = {
+        loginViewModel.clearState()
+    })
     ShowAppLayoutWithLogo {
         AppBoldedTextField(
             text = stringResource(id = R.string.login_to_your_account),

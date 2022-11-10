@@ -22,13 +22,12 @@ fun NinjaAppNavHost(
         modifier = modifier
     ) {
         composable(route = SignInScreen.route) {
-            val viewModel = hiltViewModel<LoginViewModel>()
 
             SignInPageScreen(onSignInClick = {
             }, onForgetPasswordClick = {
             }, onSignUpClick = {
                 navController.navigate(SignUpScreen.route)
-            }, loginViewModel= viewModel)
+            })
         }
         composable(route = SignUpScreen.route) {
             SignUpPageScreen()
