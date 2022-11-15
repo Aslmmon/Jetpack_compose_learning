@@ -13,8 +13,9 @@ import com.example.playingwithcompose.foodNinjaApp.navigation.SignUpScreen
 
 const val SignUpScreenDescription = "SignUpScreenDesscription"
 
+@Preview
 @Composable
-fun SignUpPageScreen() {
+fun SignUpPageScreen(onCreateAccountClick:()->Unit ={}) {
     ShowAppLayoutWithLogo(modifier = Modifier.semantics {
         contentDescription =
             SignUpScreenDescription
@@ -23,10 +24,6 @@ fun SignUpPageScreen() {
             text = "Sign up For Free ",
             modifier = Modifier.padding(top = 60.dp, bottom = 20.dp)
         )
-        AppEditText(hintEditText = "Amsdsd", leadingIcon = {
-            AppImageLoaderSVG(resource = R.drawable.lock)
-            AppImageLoaderSVG(resource = R.drawable.profile)
-        })
         AppEditText(hintEditText = "Email", leadingIcon = {
             AppImageLoaderSVG(resource = R.drawable.message)
         })
@@ -35,42 +32,10 @@ fun SignUpPageScreen() {
         })
         AppTextWithIcon(title = "Keep Me Signed In")
         AppTextWithIcon(title = "Email Me About Special Pricing")
-        AppButton(text = "Create Account")
+        AppButton(text = "Create Account", onButtonClick = onCreateAccountClick)
         AppTextUnderlined("Already have an account?", onTextClicked = {
 
         })
     }
 }
 
-
-@Preview(name = "SignUpScreen")
-@Composable
-fun ShowSignUp() {
-    ShowAppLayoutWithLogo {
-        AppBoldedTextField(
-            text = "Sign up For Free ",
-            modifier = Modifier.padding(top = 30.dp, bottom = 20.dp)
-        )
-
-        AppEditText(hintEditText = "Amsdsd", leadingIcon = {
-            AppImageLoaderSVG(resource = R.drawable.lock)
-            AppImageLoaderSVG(resource = R.drawable.profile)
-        })
-        AppEditText(hintEditText = "Email", leadingIcon = {
-            AppImageLoaderSVG(resource = R.drawable.message)
-
-
-        })
-        AppEditText(hintEditText = "Password", leadingIcon = {
-            AppImageLoaderSVG(resource = R.drawable.lock)
-        })
-        AppTextWithIcon(title = "Keep Me Signed In")
-        AppTextWithIcon(title = "Email Me About Special Pricing")
-        AppButton(text = "Create Account", onButtonClick = {
-
-        })
-        AppTextUnderlined("Already have an account?", onTextClicked = {
-
-        })
-    }
-}

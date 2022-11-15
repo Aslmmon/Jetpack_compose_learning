@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import com.example.playingwithcompose.foodNinjaApp.feature.auth.login.LoginViewModel
 import com.example.playingwithcompose.foodNinjaApp.feature.auth.login.SignInPageScreen
 import com.example.playingwithcompose.foodNinjaApp.feature.auth.signUp.SignUpPageScreen
+import com.example.playingwithcompose.foodNinjaApp.feature.auth.signUpProcess.ShowProfileBioScreen
 import com.example.playingwithcompose.foodNinjaApp.feature.splash.SplashScreen
 
 @Composable
@@ -30,7 +31,19 @@ fun NinjaAppNavHost(
             })
         }
         composable(route = SignUpScreen.route) {
-            SignUpPageScreen()
+            SignUpPageScreen(onCreateAccountClick = {
+                navController.navigate(ProfileBioScreen.route)
+            })
+        }
+        composable(route=ProfileBioScreen.route){
+            ShowProfileBioScreen(onNextButtonClicked = {
+                navController.navigate(ProfileImageScreen.route)
+            }, onBackButtonClicked = {
+                navController.popBackStack()
+            })
+        }
+        composable(route=ProfileImageScreen.route){
+
         }
         composable(route = SplashScreen.route) {
             SplashScreen(onSplashDelayEnd = {

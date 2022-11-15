@@ -9,4 +9,10 @@
     <string name="signUp_title">Sign Up</string>
     <string name="facebook_title">Facebook</string>
     <string name="google_title">Google</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="mobileNumber">Mobile Number</string>
+    <string name="bio_description">This data will be displayed in your account profile for security</string>
+    <string name="bio_title">Fill in your Bio to get Started</string>
+    <string name="next_title">Next</string>
 </resources>

@@ -18,7 +18,7 @@ import com.example.playingwithcompose.R
 @Preview(name = "EditText")
 @Composable
 fun AppEditText(
-    hintEditText: String = "test",
+    hintEditText: String = "",
     leadingIcon: @Composable (() -> Unit)? = null,
     onValueChange:(String)->Unit ={}
 ) {

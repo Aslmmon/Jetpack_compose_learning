@@ -39,6 +39,13 @@ object SignUpScreen : NinjaAppDestination {
     override val route = "signUpScreen"
 }
 
+object ProfileBioScreen : NinjaAppDestination {
+    override val route = "profileBioScreen"
+}
+object ProfileImageScreen : NinjaAppDestination {
+    override val route = "profileImageScreen"
+}
+
 /**
  * for argument destination
  */

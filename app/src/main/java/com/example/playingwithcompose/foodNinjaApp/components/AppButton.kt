@@ -25,8 +25,9 @@ fun AppButton(
     backgroundColor: Color = AppColorPrimary,
     textColor: Color = AppColorWhite,
     onButtonClick: () -> Unit={},
-    isButtonValid:Boolean=true
-    ) {
+    isButtonValid:Boolean=true,
+
+) {
     Button(
         onClick = onButtonClick,
         modifier = modifier

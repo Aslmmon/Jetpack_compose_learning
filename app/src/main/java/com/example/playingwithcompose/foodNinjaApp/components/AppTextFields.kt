@@ -15,7 +15,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.playingwithcompose.R
 import com.example.playingwithcompose.ui.theme.AppColorBlack
 import com.example.playingwithcompose.ui.theme.AppColorPrimary
@@ -23,8 +26,13 @@ import com.example.playingwithcompose.ui.theme.AppColorWhite
 
 
 @Composable
-fun AppBoldedTextField(modifier: Modifier = Modifier, text: String) {
-    return Text(text = text, fontWeight = FontWeight.Bold, modifier = modifier)
+fun AppBoldedTextField(modifier: Modifier = Modifier, text: String, textSize: Int=18,fontWeight: FontWeight=FontWeight.Bold) {
+    return Text(
+        text = text,
+        fontWeight = fontWeight,
+        modifier = modifier,
+        fontSize = textSize.sp
+    )
 }
 
 @Preview
@@ -46,7 +54,7 @@ fun AppTextWithIcon(
                 .clip(CircleShape)
                 .background(AppColorPrimary), contentAlignment = Alignment.Center
         ) {
-            AppImageLoaderSVG(R.drawable.right_icon)
+            AppImageLoaderSVG(resource = R.drawable.right_icon)
         }
         Spacer(modifier = modifier.padding(horizontal = 5.dp))
         Text(text = title, textAlign = TextAlign.Center, color = textColor)
