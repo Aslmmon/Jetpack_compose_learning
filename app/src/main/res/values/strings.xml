@@ -15,4 +15,5 @@
     <string name="bio_description">This data will be displayed in your account profile for security</string>
     <string name="bio_title">Fill in your Bio to get Started</string>
     <string name="next_title">Next</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name="com.example.playingwithcompose.App"
+        android:name=".App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,25 +14,28 @@
         android:theme="@style/LaunchTheme"
         tools:targetApi="31">
         <activity
-            android:name="com.example.playingwithcompose.paymentsApp.PaymentMainActivity"
-            android:exported="true"
-            >
+            android:name=".NotesApp.MainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main"
+            android:theme="@style/LaunchTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".paymentsApp.PaymentMainActivity"
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
         </activity>
         <activity
-            android:name="com.example.playingwithcompose.foodNinjaApp.FoodNinjaApp"
+            android:name=".foodNinjaApp.FoodNinjaApp"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/LaunchTheme"
             android:windowSoftInputMode="adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
