@@ -3,9 +3,9 @@ package com.example.playingwithcompose.wellnessCounterApp.views
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,11 +34,11 @@ fun TopCard(totalMoney: Double = 135.0) {
         ) {
             Text(
                 text = "Total per Person", style =
-                MaterialTheme.typography.h5
+                MaterialTheme.typography.bodyMedium
             )
             Text(
                 text = totalMoney.roundToInt().toString(),
-                style = MaterialTheme.typography.h4,
+                style = MaterialTheme.typography.bodyLarge,
                 fontWeight = FontWeight.ExtraBold
             )
         }

@@ -2,14 +2,11 @@ package com.example.playingwithcompose.foodNinjaApp.feature.auth.signUpProcess
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Colors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -66,7 +63,7 @@ fun ShowProfileBioScreen(
             AppButton(
                 text = stringResource(id = R.string.next_title),
                 onButtonClick = onNextButtonClicked,
-                modifier = modifier.padding(bottom = 25.dp)
+                modifier = modifier.padding(bottom = 45.dp)
             )
         }
     }

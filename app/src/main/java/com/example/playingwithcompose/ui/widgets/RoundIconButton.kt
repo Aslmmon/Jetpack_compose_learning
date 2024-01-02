@@ -4,9 +4,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -22,7 +22,7 @@ fun RoundIconButton(
     imageVector: ImageVector,
     onClick: () -> Unit,
     tint: Color = Color.Black.copy(alpha = 0.8f),
-    backgroundColor: Color = MaterialTheme.colors.background,
+    backgroundColor: Color = MaterialTheme.colorScheme.background,
     elevation: Dp = 4.dp
 ) {
     Card(
@@ -30,9 +30,7 @@ fun RoundIconButton(
             .padding(all = 4.dp)
             .clickable { onClick.invoke() }
             .then(iconSizeModifier),
-        shape = CircleShape,
-        backgroundColor = backgroundColor, elevation = elevation,
-
+        shape = CircleShape
         ) {
         Icon(imageVector = imageVector, contentDescription = "icon", tint = tint)
     }

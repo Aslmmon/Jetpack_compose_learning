@@ -6,12 +6,12 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.material.Slider
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material3.Slider
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Remove
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -74,7 +74,7 @@ fun MainContent() {
                     modifier = Modifier.padding(horizontal = 3.dp),
                     horizontalArrangement = Arrangement.End
                 ) {
-                    RoundIconButton(imageVector = Icons.Default.Remove, onClick = {
+                    RoundIconButton(imageVector = Icons.Default.Refresh, onClick = {
                         Log.d("number", "MainContent: ${isMoreThanOne.toString()}")
                         if (isMoreThanOne) totalSplitNumber.value--
                     })

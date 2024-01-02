@@ -45,6 +45,9 @@ fun NinjaAppNavHost(
         composable(route=ProfileImageScreen.route){
 
         }
+        composable(route=PaymentScreen.route){
+
+        }
         composable(route = SplashScreen.route) {
             SplashScreen(onSplashDelayEnd = {
                 navController.navigate(SignInScreen.route) {

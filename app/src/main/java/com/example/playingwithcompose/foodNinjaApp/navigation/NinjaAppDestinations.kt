@@ -45,6 +45,11 @@ object ProfileBioScreen : NinjaAppDestination {
 object ProfileImageScreen : NinjaAppDestination {
     override val route = "profileImageScreen"
 }
+object PaymentScreen:NinjaAppDestination{
+    override val route: String
+        get() = "paymentScreen"
+
+}
 
 /**
  * for argument destination
